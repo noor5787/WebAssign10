@@ -1,0 +1,221 @@
+ **Q.1** Middlewares in Node.js:
+In Node.js, middleware refers to a series of functions or components that are executed in a sequential manner during the processing of a request. It sits between the incoming request and the final route handler, allowing you to perform various tasks such as request parsing, authentication, validation, logging, error handling, and more.
+
+Middleware functions have access to the request and response objects, as well as the next function in the application's request-response cycle. They can modify the request and response objects, terminate the request-response cycle, or pass control to the next middleware function by calling the `next()` function.
+
+Middleware plays a crucial role in Express.js, which is a popular web application framework for Node.js. Express provides a middleware layer that allows you to easily add, remove, or modify middleware functions to handle different aspects of your application's logic.
+
+Common use cases for middleware include:
+
+1. Logging: Middleware can log incoming requests, response times, and other relevant information for debugging and monitoring purposes.
+2. Authentication: Middleware can handle user authentication, verifying credentials, and managing session data.
+3. Error handling: Middleware can catch and process errors, providing appropriate responses to clients.
+4. Request parsing: Middleware can parse incoming request bodies or headers to extract relevant data.
+5. Caching: Middleware can implement caching mechanisms to improve performance by serving cached responses for repeated requests.
+
+Overall, middlewares in Node.js provide a modular and flexible way to handle common tasks in web applications, making the development process more efficient and maintainable.
+
+ **Q.2** Express vs. Node.js:
+Express is a web application framework built on top of Node.js, so it's not a matter of using Express over Node.js. Instead, Express is commonly used alongside Node.js to simplify the development of web applications.
+
+Node.js is a runtime environment that allows you to execute JavaScript on the server-side. It provides a non-blocking, event-driven architecture, making it well-suited for building scalable and high-performance applications. However, Node.js itself is relatively low-level, requiring you to handle many low-level details when developing web applications.
+
+Express.js, on the other hand, is a minimalist web application framework that runs on top of Node.js. It provides a higher-level abstraction, offering a set of features and utilities that make it easier to build web applications. Express simplifies tasks such as routing, request handling, middleware management, and templating, allowing you to focus more on your application's business logic.
+
+By using Express, you can benefit from:
+
+1. Routing: Express provides a simple and flexible way to define routes and handle different HTTP methods (GET, POST, PUT, DELETE, etc.).
+2. Middleware: Express has a built-in middleware system that makes it easy to add functionality to your application, as explained in the previous answer.
+3. Templating: Express supports various template engines, allowing you to generate dynamic HTML pages and render them with data.
+4. Simplified request handling: Express simplifies parsing request bodies, handling cookies, and working with HTTP headers.
+5. Modular structure: Express encourages a modular structure, making it easier to organize your code and separate concerns.
+
+In summary, while Node.js provides the runtime environment for executing JavaScript on the server-side, Express.js builds upon Node.js to provide a more feature-rich and developer-friendly framework for building web applications.
+
+ **Q.3** REST API:
+REST (Representational State Transfer) is an architectural style for designing networked applications. RESTful APIs (Application Programming Interfaces) adhere to this architectural style and serve as a way to interact with web services.
+
+REST APIs are based on a set of principles, including:
+
+1. Stateless: Each request from a client to a server must contain all the necessary information for the server to understand and process the request. The server doesn't keep track of the client's state between requests.
+2. Client-Server Architecture: The client and server are separate entities that communicate over a network. The client is responsible for the user interface and user experience, while the server handles the processing and storage of data.
+3. Uniform Interface: REST APIs have a uniform interface, typically using standard HTTP methods such as GET, POST, PUT, and DELETE to perform CRUD (Create, Read, Update, Delete) operations on resources. Resources are identified using URLs (Uniform Resource Locators).
+4. Stateless Server: The server does not store any client state between requests. Each request is treated independently.
+5. Cacheable: Responses from a REST API can be cached by clients or intermediate servers to improve performance.
+6. Layered System: REST APIs can be layered, allowing intermediate servers, such as proxies or load balancers, to handle requests before forwarding them to the appropriate backend server.
+
+REST APIs enable clients (such as web browsers, mobile apps, or other servers) to interact with server-side resources in a standardized and scalable manner. They are widely used in web development for building web services, providing access to data, and enabling integration between different systems.
+
+ **Q.4** Use of MongoDB:
+MongoDB is a popular NoSQL database management system that provides a flexible and scalable solution for storing and retrieving data. It is designed to handle large volumes of data, support high availability, and scale horizontally across multiple servers.
+
+The use of MongoDB is beneficial in several scenarios, including:
+
+1. Document Storage: MongoDB stores data in a flexible, JSON-like format called BSON (Binary JSON). This allows for the storage of complex data structures, including nested arrays and documents, without requiring a predefined schema.
+2. Scalability: MongoDB can scale horizontally by distributing data across multiple servers in a cluster. It provides built-in support for sharding, which allows for the distribution of data based on a shard key. This enables the database to handle increased data volumes and high traffic loads.
+3. High Performance: MongoDB's architecture and indexing capabilities make it well-suited for fast read and write operations. It supports various indexing options, including single-field, compound, and geospatial indexes, allowing for efficient querying of data.
+4. Flexibility: MongoDB's flexible schema allows for iterative development and schema evolution. It can adapt to changing requirements without requiring downtime or migrations.
+5. Rich Query Language: MongoDB provides a powerful query language that supports a wide range of operations, including filtering, sorting, aggregating, and performing geospatial queries. It also supports ad hoc queries and indexing for efficient data retrieval.
+6. Horizontal Partitioning: MongoDB supports horizontal partitioning through sharding, which allows for the distribution of data across multiple servers based on a shard key. This enables automatic balancing of data across the cluster and helps ensure optimal performance and scalability.
+
+Overall, MongoDB is well-suited for scenarios that require flexibility, scalability, and high performance in handling large volumes of data.
+
+ **Q.5** Mongoose and MongoDB:
+Mongoose is an Object Data Modeling (ODM) library for Node.js that provides a higher-level abstraction and a more convenient way to interact with MongoDB. It acts as a bridge between the application and the MongoDB database, allowing you to define schemas, models, and perform database operations using a more expressive and consistent API.
+
+Here's how Mongoose relates to MongoDB:
+
+1. Schema Definition: With Mongoose, you can define schemas that define the structure and constraints of the data stored in MongoDB. A schema describes the fields, their types, validation rules, default values, and more. It helps enforce data integrity and consistency.
+2. Model Creation: Mongoose allows you to create models based on
+
+ the defined schemas. Models are constructors that represent collections in the MongoDB database. They provide an interface for interacting with the data, including querying, saving, updating, and deleting documents.
+3. Middleware Support: Mongoose supports middleware functions that can intercept and manipulate the data before or after specific events, such as saving a document or querying the database. Middleware functions can be used for tasks like data validation, pre-processing, or triggering additional actions.
+4. Query Building: Mongoose provides a query builder API that simplifies the creation of complex queries for MongoDB. It offers a chainable API to construct queries with conditions, projections, sorting, pagination, and more. This abstraction makes it easier to write and maintain database queries.
+5. Data Validation: Mongoose allows you to define validation rules for fields in your schemas. It supports various built-in validators and allows you to create custom validators to ensure that data meets specific requirements before being saved to the database.
+6. Population: Mongoose supports population, which is a way to automatically resolve references between different collections. It allows you to retrieve related data from other collections based on defined relationships, reducing the need for manual joins and improving query efficiency.
+
+In summary, Mongoose simplifies and enhances the interaction with MongoDB by providing an object-oriented interface, schema definition, middleware support, query building, and other useful features. It complements MongoDB by adding additional functionality and convenience for Node.js developers.
+**Q.6**const http = require('http');
+
+// Sample product data
+const menProducts = [
+  { id: 1, name: 'Men Product 1' },
+  { id: 2, name: 'Men Product 2' },
+  // Add more men products here
+];
+
+const womenProducts = [
+  { id: 1, name: 'Women Product 1' },
+  { id: 2, name: 'Women Product 2' },
+  // Add more women products here
+];
+
+// Create a server
+const server = http.createServer((req, res) => {
+  // Set the response header
+  res.setHeader('Content-Type', 'application/json');
+
+  // Routing based on the request URL
+  if (req.url === '/') {
+    res.statusCode = 200;
+    res.end(JSON.stringify({ message: 'Welcome to Men & Women Dummy Data' }));
+  } else if (req.url === '/men') {
+    res.statusCode = 200;
+    res.end(JSON.stringify(menProducts));
+  } else if (req.url === '/women') {
+    res.statusCode = 200;
+    res.end(JSON.stringify(womenProducts));
+  } else {
+    res.statusCode = 404;
+    res.end(JSON.stringify({ message: 'Page not found' }));
+  }
+});
+
+// Start the server
+server.listen(3000, () => {
+  console.log('Server is running on port 3000');
+});
+**Q.7**const express = require('express');
+const app = express();
+
+// Endpoint for generating a random number
+app.get('/random', (req, res) => {
+  const randomNumber = Math.floor(Math.random() * 100); // Generate a random number between 0 and 100
+  res.json({ random: randomNumber }); // Send the random number as a JSON response
+});
+
+// Start the server
+app.listen(3000, () => {
+  console.log('Server is running on port 3000');
+});
+**Q.8**const express = require('express');
+const app = express();
+
+let counter = 0;
+
+// Endpoint for getting the counter value
+app.get('/', (req, res) => {
+  res.json({ counter: counter });
+});
+
+// Endpoint for incrementing the counter
+app.get('/increment', (req, res) => {
+  counter++;
+  res.json({ counter: counter });
+});
+
+// Endpoint for decrementing the counter
+app.get('/decrement', (req, res) => {
+  counter--;
+  res.json({ counter: counter });
+});
+
+// Start the server
+app.listen(3000, () => {
+  console.log('Server is running on port 3000');
+});
+**Q9**const express = require('express');
+const app = express();
+const bodyParser = require('body-parser');
+
+app.use(bodyParser.json());
+
+let todos = [];
+
+// Middleware to validate mandatory input
+const validateInput = (req, res, next) => {
+  const { task } = req.body;
+  if (!task) {
+    res.status(400).json({ message: 'Validation failed. Task is required.' });
+  } else {
+    next();
+  }
+};
+
+// Endpoint for getting all todos
+app.get('/', (req, res) => {
+  res.json(todos);
+});
+
+// Endpoint for creating a new todo
+app.post('/add', validateInput, (req, res) => {
+  const { task } = req.body;
+  const newTodo = {
+    id: todos.length + 1,
+    task: task,
+  };
+  todos.push(newTodo);
+  res.json(newTodo);
+});
+
+// Endpoint for updating a todo
+app.put('/update/:id', validateInput, (req, res) => {
+  const { id } = req.params;
+  const { task } = req.body;
+
+  const todoIndex = todos.findIndex((todo) => todo.id === parseInt(id));
+  if (todoIndex !== -1) {
+    todos[todoIndex].task = task;
+    res.json({ message: 'Todo updated successfully', data: todos });
+  } else {
+    res.status(404).json({ message: 'Todo not found' });
+  }
+});
+
+// Endpoint for deleting a todo
+app.delete('/delete/:id', (req, res) => {
+  const { id } = req.params;
+
+  const todoIndex = todos.findIndex((todo) => todo.id === parseInt(id));
+  if (todoIndex !== -1) {
+    todos.splice(todoIndex, 1);
+    res.json({ message: 'Todo deleted', data: todos });
+  } else {
+    res.status(404).json({ message: 'Todo not found' });
+  }
+});
+
+// Start the server
+app.listen(3000, () => {
+  console.log('Server is running on port 3000');
+});
